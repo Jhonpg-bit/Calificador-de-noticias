@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Noticias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Clasificación de Noticias</h1>
+        <form action="/predict" method="post">
+            <textarea name="texto_noticia" rows="10" cols="30" placeholder="Escribe la noticia aquí...">{{ texto }}</textarea><br>
+            <button type="submit">Predecir Categoría</button>
+        </form>
+        {% if categoria %}
+            <h2>Categoría Predicha: {{ categoria }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
